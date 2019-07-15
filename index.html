@@ -4,11 +4,13 @@
   <title> Solanav </title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Varela&display=swap" rel="stylesheet"> 
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Varela&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.5/css/mdb.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
   <style>
       h1, h2, h3, h4, title {
@@ -28,29 +30,48 @@
   
 <div class="container">
   <div class="row">
-    <div class="col-md-3">
-      <ul class="list-group list-group-flush">
-        <a href="https://solanav.github.io/index.html#liu_secure_communication" class="list-group-item list-group-item-action">
-          LIU P2P COMMS
-          <div class="d-flex justify-content-between">
-            <small>[Future]</small>
-          </div>
-        </a>
-        <a href="https://solanav.github.io/index.html#p2p_rat_network_security" class="list-group-item list-group-item-action">
-          P2P Security
-          <div class="d-flex justify-content-between">
-            <small>[15/07/19]</small>
-          </div>
-        </a>
-      </ul>
-      <br>
+    <div class="col-lg-3">
+
+        <!-- INDEX TABLE -->
+        <h4>Posts</h4>
+        <ul class="list-group list-group-flush">
+          <a href="https://solanav.github.io/index.html#liu_secure_communication"
+            class="list-group-item list-group-item-action">
+            Liu P2P Comms
+          </a>
+          <a href="https://solanav.github.io/index.html#p2p_rat_network_security"
+            class="list-group-item list-group-item-action">
+            P2P Security
+          </a>
+        </ul>
+  
+        <!-- MEDIA -->
+        <br>
+        <h4>Social</h4>
+        <ul class="list-group list-group-flush">
+          <a href="https://github.com/solanav"
+            class="list-group-item list-group-item-action">
+            <i class="fab fa-github pr-1"></i>
+            <span>Github</span>
+          </a>
+          <a href="https://twitter.com/3os76dou4hpp"
+            class="list-group-item list-group-item-action">
+            <i class="fab fa-twitter pr-1"></i>
+            <span>Twitter</span>
+          </a>
+        </ul>
+        <br>
+        
     </div>
-    <div class="col-md-9">
+    <div class="col-lg-9">
+
+      <!-- BLOG -->
+      <hr>
       <h3 id="liu_secure_communication">LIU SECURE COMMUNICATION</h3>
       <p><i>[Future]</i></p>
       
       <br><br>
-
+      <hr>
       <h3 id="p2p_rat_network_security">P2P RAT NETWORK'S SECURITY</h3>
       <p><i>[15/07/19]</i></p>
       <p>&#8195;While writing a p2p communication protocol for my last project, I was faced with the problem of discovery of peers and their authenticity.</p>
