@@ -30,29 +30,30 @@
   <div class="row">
     <div class="col">
       <h3>P2P RAT SECURITY</h3>
+      <p><i>[15/07/19]</i></p>
       <p>
-        &nbsp While writting a p2p communication protocol for my last project, I was faced with the problem of discovery
+        &emsp; While writting a p2p communication protocol for my last project, I was faced with the problem of discovery
         of peers and their authenticity.
         <br><br>
-        &nbsp The first security meassure is to sign every client or peer that is deployed to the network. The server
+        &emsp; The first security meassure is to sign every client or peer that is deployed to the network. The server
         has a RSA keypair. It uses the private key to sign the IP of the client being installed. The public key of
         the server is also given to the client for verification of the server instructions.<br>
         This seems like a good idea because it prevents a third party to infiltrate the network unless the server
         infects the attackers computer. We also make sure that the instructions from the server are from the server.
         <br><br>
-        &nbsp To allow clients to replicate and install themselves on other computers, we need a way of asking the server
+        &emsp; To allow clients to replicate and install themselves on other computers, we need a way of asking the server
         for a certificate for a given IP. For this to work, the server has to verify that the client asking for a
         new certificate is already part of the network. This is problematic because if an attacker gets their computer
         infected, they now can create as many peers as they want.
         <br><br>
-        &nbsp Instead of trying to keep attackers out of the network, I propose the idea of making every peer pay a price
+        &emsp; Instead of trying to keep attackers out of the network, I propose the idea of making every peer pay a price
         for getting into the network. The peers should start with an "unstrusted" status and become "trusted" only
         after they give the server something we want. This could be a certain ammount of time mining monero for example.<br>
         With this system, the "untrusted" peers cannot get a very limited ammount of information from other peers.
         They are able of relaying instructions to other peers. This way, you allow the attacker to get information
         only if they help the network function and they potentially make you some money.
         <br><br>
-        &nbsp How do we know the state of a peer? This could be fixed in a centrilized manner, just by asking the server 
+        &emsp; How do we know the state of a peer? This could be fixed in a centrilized manner, just by asking the server 
         about the peer. This is good if you want to verify peers by making them mine crypto. Peers could send their
         proof of work to the server, the server verifies that it is valid and lists the peer as trusted on a database.<br>
         The decentrilized solution is to let every peer decide if a new peer is or not trusted. This way, peers will
