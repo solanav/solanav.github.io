@@ -8,30 +8,42 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans|Varela&display=swap" rel="stylesheet"> 
+
+  <style>
+      h1, h2, h3, h4, title {
+        font-family: 'Varela', sans-serif;
+      }
+      p {
+        font-family: 'Open Sans', sans-serif;
+      }
+  </style>
+  
 </head>
 <body>
-
 <div class="jumbotron text-center">
-  <h1>My First Bootstrap Page</h1>
-  <p>Resize this responsive page to see the effect!</p> 
+  <h1 class="varela"> M**WARE </h1>
+  <p> Personal blog, maily talking about evil wares </p>
 </div>
   
 <div class="container">
   <div class="row">
-    <div class="col-sm-4">
-      <h3>Column 1</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 2</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
-    </div>
-    <div class="col-sm-4">
-      <h3>Column 3</h3>        
-      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
-      <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+    <div class="col">
+      <h3>P2P RAT SECURITY</h3>
+      <p>
+          While writting a p2p communication protocol for my last project, I was faced with the problem of discovery
+          of peers and their authenticity.<br><br>
+
+          The first security meassure is to sign every client or peer that is deployed to the network. The server
+          has a RSA keypair. It uses the private key to sign the IP of the client being installed. The public key of
+          the server is also given to the client for verification of the server instructions.<br>
+          This seems like a good idea because it prevents a third party to infiltrate the network unless the server
+          infects the attackers computer. We also make sure that the instructions from the server are from the server.
+          The problem with this solution is that clients can not install other clients themselves.<br><br>
+
+          We could try to fix this by requiring multiple peers to verify the new peer so that the attacker would need
+          a lot of computers already inside the network to add another one.<br><br>
+      </p>
     </div>
   </div>
 </div>
