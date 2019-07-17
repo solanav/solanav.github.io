@@ -49,7 +49,7 @@
             <i class="fab fa-twitter pr-1"></i>
             <span>Twitter</span>
           </a>
-          <button onClick="prompt('My email:', 'solanav@qq.com')" type="button" class="list-group-item list-group-item-action">
+          <button onClick="copy_to_clipboard()" type="button" class="list-group-item list-group-item-action">
             <i class="fas fa-envelope pr-1"></i>
             <span id="email_button_message">Email</span>
           </button>
@@ -227,5 +227,43 @@
   </div>
 
 </body>
+
+<script>
+const sleep = (milliseconds) => {
+  return new Promise(resolve => setTimeout(resolve, milliseconds))
+}
+
+function copy_to_clipboard()
+{
+  email_data = document.getElementById('email_button_message');
+  email_data.innerText = "Copied to clipboard!";
+  copyText("solanav@qq.com");
+
+  sleep(2000).then(() => {
+    email_data.innerText = "Email";
+  });
+}
+
+function copyText(text){
+  function selectElementText(element) {
+    if (document.selection) {
+      var range = document.body.createTextRange();
+      range.moveToElementText(element);
+      range.select();
+    } else if (window.getSelection) {
+      var range = document.createRange();
+      range.selectNode(element);
+      window.getSelection().removeAllRanges();
+      window.getSelection().addRange(range);
+    }
+  }
+  var element = document.createElement('DIV');
+  element.textContent = text;
+  document.body.appendChild(element);
+  selectElementText(element);
+  document.execCommand('copy');
+  element.remove();
+}
+</script>
 
 </html>
