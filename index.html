@@ -76,7 +76,64 @@
         <!-- BLOG -->
         <hr>
 
+        <!-- BLOG POST 3 -->
+        <h3 id="data_structures">FAST </h3>
+        <p><i>[25/07/19]</i></p>
+        &#8195;Back at it again, now with some more basic albeit also more boring stuff. I want to talk about data
+        structures
+        because that’s the problem I have faced this week.<br>
+        <br>
+        &#8195;My communication protocol has two parts: an active one that lets you send messages when you call its
+        functions
+        and a reactive one which only receives messages and reacts to them. Each of these parts is running on a
+        different thread. This seemed OK until I started to think about latency and how to calculate it.<br>
+        <br>
+        &#8195;To calculate latency I just send a ping, wait for the other computer to respond with a pong and calculate
+        the
+        time difference between these two. But because these two are in different threads I need a way for the active
+        functions to know when the response has arrived. My first idea was to create a list of the last 128 datagrams
+        (that’s how UDP messages are called) that we receive. Then the active part can send a ping and look through this
+        list of datagrams until either it finds what it wants or times out. This is a bad solution because:<br>
+        <br>
+        1. You have to iterate through the list constantly, wasting CPU cycles.<br>
+        2. If you want to read this list (which is going to be in shared memory) you need to block it with a semaphore,
+        and this is going to slow down the reactive part.<br>
+        3. It requires luck. We don’t really know when it’s going to arrive or if it is going to arrive.<br>
+        <br>
+        &#8195;So after thinking a bit about this I came up with my (for now) final solution. I created a request list
+        on the
+        shared memory. This request list contains a number of datagrams with a timestamp and other data I require. The
+        active part publishes a request like “I’m expecting a pong from 23.214.223.198”. The handlers from the reactive
+        part look in the request list every time the receive a response-type message and if they find the corresponding
+        ping to a pong for example, they do whatever they have to with that data. To make this lookup as fast as
+        possible I do a couple of things.<br>
+        <br>
+        &#8195;First, handlers only look in the list for some messages. For example if you receive a pong you will have
+        to look
+        in the request list to check if you had requested this pong. But if you receive a ping, you can be sure you have
+        not requested this.<br>
+        <br>
+        &#8195;Second, when I do look in the request list I need to do it fast so I need a good data structure. I wanted
+        to keep them sorted by time of arrival. When I go check for a request I want to see the oldest requests first.
+        But I also want to use a simple array, no allocation of memory. I also don’t want to leave empty spaces. A <a
+          href="https://www.cs.cmu.edu/~adamchik/15-121/lectures/Linked%20Lists/linked%20lists.html">linked list</a>
+        seems like a good enough solution to this. So I implemented a double-linked list (so I can traverse it both
+        ways) inside a list of size 128. When you add a new datagram to the list you just add it to the first empty
+        space you can find. Then you set the “next” element of the old last to be you. And finally you set yourself as
+        the last element.
+        <p>
+          Interesting links:
+        </p>
+        <ul>
+          <li><a href="http://www.kegel.com/c10k.html">Async programming in C</a></li>
+          <li><a href="http://man7.org/linux/man-pages/man2/eventfd.2.html">FD for events</a></li>
+          <li><a href="http://man7.org/linux/man-pages/man7/epoll.7.html">EPoll to use with eventfd</a></li>
+        </ul>
+        <br>
+        <br>
+
         <!-- BLOG POST 2 -->
+        <hr>
         <h3 id="p2p_secure_communication">SECURE COMMS FOR P2P NETWORKS</h3>
         <p><i>[17/07/19]</i></p>
         <p>&#8195;Writing software and writing about writing software.
@@ -229,49 +286,48 @@
 </body>
 
 <script>
-const sleep = (milliseconds) => {
-  return new Promise(resolve => setTimeout(resolve, milliseconds))
-}
-
-function copy_to_clipboard()
-{
-  email_data = document.getElementById('email_button_message');
-  email_data.innerText = "Copied to clipboard!";
-  copyText("solanav@qq.com");
-
-  sleep(2000).then(() => {
-    email_data.innerText = "Email";
-  });
-}
-
-function copyText(text){
-  function selectElementText(element) {
-    if (document.selection) {
-      var range = document.body.createTextRange();
-      range.moveToElementText(element);
-      range.select();
-    } else if (window.getSelection) {
-      var range = document.createRange();
-      range.selectNode(element);
-      window.getSelection().removeAllRanges();
-      window.getSelection().addRange(range);
-    }
+  const sleep = (milliseconds) => {
+    return new Promise(resolve => setTimeout(resolve, milliseconds))
   }
-  var element = document.createElement('DIV');
-  element.textContent = text;
-  document.body.appendChild(element);
-  selectElementText(element);
-  document.execCommand('copy');
-  element.remove();
-}
+
+  function copy_to_clipboard() {
+    email_data = document.getElementById('email_button_message');
+    email_data.innerText = "Copied to clipboard!";
+    copyText("solanav@qq.com");
+
+    sleep(2000).then(() => {
+      email_data.innerText = "Email";
+    });
+  }
+
+  function copyText(text) {
+    function selectElementText(element) {
+      if (document.selection) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(element);
+        range.select();
+      } else if (window.getSelection) {
+        var range = document.createRange();
+        range.selectNode(element);
+        window.getSelection().removeAllRanges();
+        window.getSelection().addRange(range);
+      }
+    }
+    var element = document.createElement('DIV');
+    element.textContent = text;
+    document.body.appendChild(element);
+    selectElementText(element);
+    document.execCommand('copy');
+    element.remove();
+  }
 </script>
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-144159137-1"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'UA-144159137-1');
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-144159137-1');
 </script>
 
 
