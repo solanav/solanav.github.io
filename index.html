@@ -59,6 +59,9 @@
         <br>
         <h4>Posts</h4>
         <ul class="list-group list-group-flush">
+          <a href="https://solanav.github.io/index.html#balsamiq4crack" class="list-group-item list-group-item-action">
+            Balsamiq 4 crack
+          </a>
           <a href="https://solanav.github.io/index.html#load_balancing" class="list-group-item list-group-item-action">
             HA Load balancing
           </a>
@@ -82,19 +85,54 @@
         <!-- BLOG -->
         <hr>
 
+        <!-- BLOG POST 5 -->
+        <hr>
+        <h3 id="balsamiq4crack">Balsamiq 4 license key crack</h3>
+        <p><i>[23/02/20]</i></p>
+        <p>&#8195;So the main dll that needs to be checked here is BalsamiqWireframesCommon.dll. It is located in 
+          C:\Users\{username}\AppData\Local\Programs\Balsamiq\Balsamiq Wireframes 4\
+        </p>
+        <p>&#8195;After snooping around a bit using the "strings" utility from linux and searching some stuff with dotPeek
+          I started creating a server with python that could respond to the requests from CheckDesktopKey and RegisterDesktopKey.
+          This ended up not working because my JSON responses did not fit into what the program understood for some reason. So I 
+          decided to try other ways.
+        </p>
+        <p>&#8195;Instead of trying to change the response of the server I could just modify how the programs interprets this
+          response. So I kept looking both on the common dll and on the exe and ended up on a function called getLicenseStatus
+          inside LocalFilesRegistration (in the dll). In this function there are 3 return statements that can easily be patched
+          to always return "ok". This is the only thing we need to get the program to behave as if we had a key.
+        </p>
+        <p>&#8195;To apply the crack you just need to drag and drop the dll into the Balsamiq Wireframes 4 folder (mentioned 
+          before).
+        </p>
+
+        <p>
+          Download links:
+        </p>
+        <ul>
+          <li><a href="https://www.jetbrains.com/decompiler/">dotPeek for navigating through .net code</a></li>
+          <li><a href="https://github.com/0xd4d/dnSpy">dnSpy for modifying .net code</a></li>
+          <li><a href="https://mega.nz/#!qfxnHbKb!juppOB_3UAO7FscU72iplJmxheGkQvZZogYina1KXtg">The cracked .dll (mega)</a></li>
+          <li><a href="magnet:?xt=urn:btih:08cf1f8106ac0b5883690cf11a3ae48e02aa2012&dn=BalsamiqWireframesCommon.dll&tr=udp%3a%2f%2ftracker.coppersurfer.tk%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.leechers-paradise.org%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.opentrackr.org%3a1337%2fannounce&tr=udp%3a%2f%2fp4p.arenabg.com%3a1337%2fannounce&tr=udp%3a%2f%2f9.rarbg.to%3a2710%2fannounce&tr=udp%3a%2f%2f9.rarbg.me%3a2710%2fannounce&tr=udp%3a%2f%2ftracker.internetwarriors.net%3a1337%2fannounce&tr=udp%3a%2f%2fexodus.desync.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.tiny-vps.com%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.sbsub.com%3a2710%2fannounce&tr=udp%3a%2f%2fretracker.lanta-net.ru%3a2710%2fannounce&tr=udp%3a%2f%2ftracker.torrent.eu.org%3a451%2fannounce&tr=udp%3a%2f%2ftracker.moeking.me%3a6969%2fannounce&tr=udp%3a%2f%2fopen.stealth.si%3a80%2fannounce&tr=udp%3a%2f%2fopen.demonii.si%3a1337%2fannounce&tr=udp%3a%2f%2fdenis.stalker.upeer.me%3a6969%2fannounce&tr=udp%3a%2f%2ftracker.cyberia.is%3a6969%2fannounce&tr=udp%3a%2f%2fipv4.tracker.harry.lu%3a80%2fannounce&tr=udp%3a%2f%2fzephir.monocul.us%3a6969%2fannounce&tr=udp%3a%2f%2fxxxtor.com%3a2710%2fannounce">The cracked .dll (torrent)</a></li>
+        </ul>
+        <br><br>
+
         <!-- BLOG POST 4 -->
         <h3 id="load_balancing">High availability load balancing with NGINX and Keepalived</h3>
         <p><i>[21/10/19]</i></p>
-        <p>&#8195;Unlike my other posts on the blog, this is going to be more of a tutorial than a rant or whatever I usually
+        <p>&#8195;Unlike my other posts on the blog, this is going to be more of a tutorial than a rant or whatever I
+          usually
           write. I&rsquo;ve been working on a high performance MySQL cluster that needed to be as fast and reliable as
           possible and this setup is what I&rsquo;m going to talk about.</p>
 
-        <p>&#8195;For the setup of a MySQL cluster the easiest solution is to use the gui that they provide on their website.
+        <p>&#8195;For the setup of a MySQL cluster the easiest solution is to use the gui that they provide on their
+          website.
           You can use the windows version or the linux one. Both of them can be found on the downloads page inside a zip
           or tar archive, depending on your system. Inside you will find the python tool which requires a couple of
           modules to be installed before using it.</p>
 
-        <p>&#8195;When running the automatic installation you will get to a point where the config has been generated already
+        <p>&#8195;When running the automatic installation you will get to a point where the config has been generated
+          already
           and you are able to start the cluster. Before doing that, you have to install the following binaries:</p>
 
 
@@ -106,11 +144,13 @@
         </ul>
         </p>
 
-        <p>&#8195;All these are inside the tar archive I mentioned before. You just have to move them to the location you
+        <p>&#8195;All these are inside the tar archive I mentioned before. You just have to move them to the location
+          you
           specified in the gui. The default is /usr/local/bin. When you are done you should be able to click on start
           and everything should go smoothly.</p>
 
-        <p>&#8195;My setup consisted of four nodes. Two of them are management nodes and the other two are data nodes. This
+        <p>&#8195;My setup consisted of four nodes. Two of them are management nodes and the other two are data nodes.
+          This
           was automatically decided by the gui and if it&rsquo;s good enough for the auto-installer it&rsquo;s good
           enough for me. What we are looking for now is a high availability load balancer.</p>
 
@@ -122,7 +162,7 @@
           NGINX because it&rsquo;s very easy to configure. You just have to write something like this inside
           /etc/nginx/nginx.conf.</p>
 
-<pre><code>stream {
+        <pre><code>stream {
   upstream stream_backend {
     server 192.168.1.50:8081;
     server 192.168.1.51:8081;
@@ -134,7 +174,8 @@
   }
 }</code></pre>
 
-        <p>&#8195;I installed NGINX on both management servers, that way I don&rsquo;t need any extra VMs to make the load
+        <p>&#8195;I installed NGINX on both management servers, that way I don&rsquo;t need any extra VMs to make the
+          load
           balancing work. For that to work I needed to change the servers port so that it won&rsquo;t conflic with the
           load
           balancer one. This covers the load balancing part, what about the high availability?</p>
@@ -159,7 +200,7 @@
           After installing Keepalived in both management nodes you&rsquo;ll want to
           configure it with something similar to the following for the master node:</p>
 
-<pre><code>vrrp_instance VI_1 {
+        <pre><code>vrrp_instance VI_1 {
   interface enp0s3
   state MASTER
   virtual_router_id 50
@@ -175,7 +216,7 @@
 
         <p>And this for the backup node:</p>
 
-<pre><code>vrrp_instance VI_1 {
+        <pre><code>vrrp_instance VI_1 {
   interface enp0s3
   state BACKUP
   virtual_router_id 50
@@ -189,7 +230,8 @@
   }
 }</code></pre>
 
-        <p>&#8195;In the example, 192.168.1.50 is the master node and 192.168.1.51 is the backup one. Once this is setup and
+        <p>&#8195;In the example, 192.168.1.50 is the master node and 192.168.1.51 is the backup one. Once this is setup
+          and
           you&rsquo;ve restarted NGINX and Keepalived with systemctl restart, everything should be working ok. You
           should probably add check scripts to Keepalived so that it knows when a node is down. In my example
           configuration the virtual ip is 192.168.1.99. From there you can access your services as if they were one,
