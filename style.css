@@ -1,0 +1,17 @@
+h1, h2, h3, h4, title {
+  font-family: 'Varela', sans-serif;
+}
+
+p {
+  font-family: 'Open Sans', sans-serif;
+}
+
+button.active {
+	color: inherit !important;
+    background-color: inherit !important;
+    border-color: rgba(0,0,0,.125) !important;
+}
+
+.tabcontent {
+    display: none;
+}
