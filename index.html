@@ -48,6 +48,9 @@
         <br>
         <h4>Posts</h4>
         <ul class="list-group list-group-flush">
+          <button onclick="openPost(event, '6')" type="button" class="list-group-item list-group-item-action">
+            <span id="email_button_message">Tricking AI Dungeon</span>
+          </button>
           <button onclick="openPost(event, '5')" type="button" class="list-group-item list-group-item-action">
             <span id="email_button_message">Balsamiq 4 crack</span>
           </button>
@@ -68,6 +71,18 @@
 
       </div>
       <div class="col-lg-9">
+
+        <!-- BLOG POST 6 -->
+        <div id="6" class="tabcontent" style="display: block">
+          <h3 id="aidungeon">Tricking AI Dungeon</h3>
+          <p><i>[39/07/20]</i></p>
+          <p>&#8195;I wanted a GPT-3 API key so I could do some text generation to imitate imageboard posts but it doesn't seem like I'm getting one anytime soon.</p>
+          <p>&#8195;AI Dungeon is a text game that uses GPT-2 or GPT-3 to complete stories. Turns out, its trivial to "retrain" AI Dungeon to generate anything we want and use it as an alternative to the official API. You can just create a new story,
+          choose "Custom" story so you can write the intro and then write some examples for the AI of what you want.</p>
+          <p>&#8195;To test it I donwloaded some random titles and comments from <a href="reddit.com/r/Bad_Cop_No_Donut">Bad_Cop_No_Donut</a> and formatted them with INPUT/OUTPUT labels.</p>
+          <p>&#8195;<a href="https://pastebin.com/VBMELbmT">Pastebin with some examples of the results</a></p>
+          <br><br>
+        </div>
 
         <!-- BLOG POST 5 -->
         <div id="5" class="tabcontent" style="display: block">
